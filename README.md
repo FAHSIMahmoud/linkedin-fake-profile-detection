@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1389185997.svg)](https://doi.org/10.5281/zenodo.22978171)
+
 # Fake LinkedIn Profile Detection across Manual and LLM-Generated Threats
 
 Code and results for the paper *Fake LinkedIn Profile Detection across Manual and LLM-Generated
@@ -64,15 +66,14 @@ so an interrupted notebook resumes where it stopped when re-run from the top.
 | `05_ablations` | tag subtraction removed; name removed from the introduction | about 1 h | `results_ablations.csv` |
 | `06_summary` | merges 00-05 and 07; completeness and reproducibility checks | seconds | `results_all.csv`, `results_summary.csv`, `embedding_summary.csv`, `summary.txt` |
 | `07_embedding_screen` | ten embedding formulations x four tasks x three seeds, fixed classifier | under 5 min | `results_embeddings.csv` |
-| `08_peerj_4class` | four-class task of Mohiuddin and Almogren (2025) | 4-8 h (estimate) | `results_peerj.csv`, `peerj_summary.txt` |
-| `09_best_embedding_hgs` | best screen variant under the full HGS pipeline, paired with STE | about 3 h | `results_bestemb.csv`, `bestemb_summary.txt` |
+| `08_peerj_4class` | four-class task of Mohiuddin and Almogren (2025) | about 4 h | `results_peerj.csv`, `peerj_summary.txt` |
+| `09_best_embedding_hgs` | best screen variant under the full HGS pipeline, paired with STE | about 2.6 h | `results_bestemb.csv`, `bestemb_summary.txt` |
 
-Runtimes are the sums of the times recorded in `results/results_all.csv` (notebook 08 has not been
-measured yet). They were taken on shared Colab machines and indicate orders of magnitude.
+Runtimes are the sums of the times recorded in the result files. They were taken on shared Colab machines and indicate orders of magnitude.
 
 ## Results
 
-[`results/`](results/) holds the files produced by notebooks 00-07 for the paper, and
+[`results/`](results/) holds the files produced by notebooks 00-09 for the paper, and
 [`results/README.md`](results/README.md) maps each file to the tables and figures it supports. To
 redraw the figures:
 
@@ -100,7 +101,8 @@ were run on Google Colab in 2026.
 
 ## Citation
 
-If you use this code, please cite the paper (details will be added on publication) and the dataset:
+If you use this code, please cite it through its Zenodo DOI, 10.5281/zenodo.22978171 (all versions), the
+paper (details will be added on publication) and the dataset:
 
 > N. Ayoobi, S. Shahriar, and A. Mukherjee, "The looming threat of fake and LLM-generated LinkedIn
 > profiles: challenges and opportunities for detection and prevention," in *Proc. 34th ACM Conf.

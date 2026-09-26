@@ -3,6 +3,8 @@ message: "If you use this code, please cite the paper and the dataset below."
 title: "Fake LinkedIn Profile Detection across Manual and LLM-Generated Threats: Tag-Direction Projection and Fuzzy OWA Hyperparameter Search"
 type: software
 license: MIT
+doi: "10.5281/zenodo.22978171"
+repository-code: "https://github.com/FAHSIMahmoud/linkedin-fake-profile-detection"
 authors:
   - family-names: Fahsi
     given-names: Mahmoud

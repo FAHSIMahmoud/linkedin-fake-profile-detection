@@ -1,0 +1,8 @@
+=== V5 (R2 on the tag direction) vs V0 STE, both under HGS + fuzzy OWA ===
+T1   F1+ V5 0.9684 +- 0.0045 | V0 0.9705 +- 0.0014 | paired diff -0.0021, better 1, tied 0, worse 2 of 3
+      Gulati et al. 2026, F1: 0.9639-0.9708 | V5 f1_pos 0.9684 | V0 f1_pos 0.9705
+T1b  F1+ V5 0.9777 +- 0.0101 | V0 0.9787 +- 0.0070 | paired diff -0.0010, better 1, tied 0, worse 2 of 3
+      Ayoobi et al. 2023, accuracy (mean of 5 classifiers): 0.9417-0.9633 | V5 accuracy 0.9778 | V0 accuracy 0.9787
+T2   F1+ V5 0.9926 +- 0.0008 | V0 0.9940 +- 0.0029 | paired diff -0.0014, better 1, tied 0, worse 2 of 3
+T3   F1+ V5 0.9849 +- 0.0028 | V0 0.9812 +- 0.0019 | paired diff +0.0037, better 2, tied 0, worse 1 of 3
+      Gulati et al. 2026, GPT-3.5 retrained, F1: 0.9770-0.9820 | V5 f1_pos 0.9849 | V0 f1_pos 0.9812
