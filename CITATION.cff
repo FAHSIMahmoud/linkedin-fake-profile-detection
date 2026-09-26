@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper and the dataset below."
+title: "Fake LinkedIn Profile Detection across Manual and LLM-Generated Threats: Tag-Direction Projection and Fuzzy OWA Hyperparameter Search"
+type: software
+license: MIT
+authors:
+  - family-names: Fahsi
+    given-names: Mahmoud
+    affiliation: "EEDIS Laboratory, Djillali Liabes University of Sidi Bel Abbes, Algeria"
+    orcid: "https://orcid.org/0000-0002-2896-136X"
+  - family-names: Mahammed
+    given-names: Nadir
+    affiliation: "LabRI-SBA Laboratory, Ecole Superieure en Informatique, Sidi Bel Abbes, Algeria"
+  - family-names: Kourtich
+    given-names: Ali
+    affiliation: "EEDIS Laboratory, Djillali Liabes University of Sidi Bel Abbes, Algeria"
+  - family-names: Septem Riza
+    given-names: Lala
+    affiliation: "Department of Computer Science Education, Universitas Pendidikan Indonesia, Indonesia"
+  - family-names: Mouilah
+    given-names: Cheikh
+    affiliation: "Biomathematics Laboratory, Djillali Liabes University of Sidi Bel Abbes, Algeria"
+references:
+  - type: conference-paper
+    title: "The looming threat of fake and LLM-generated LinkedIn profiles: challenges and opportunities for detection and prevention"
+    authors:
+      - family-names: Ayoobi
+        given-names: Navid
+      - family-names: Shahriar
+        given-names: Sadat
+      - family-names: Mukherjee
+        given-names: Arjun
+    collection-title: "Proceedings of the 34th ACM Conference on Hypertext and Social Media"
+    year: 2023
+    doi: "10.1145/3603163.3609064"

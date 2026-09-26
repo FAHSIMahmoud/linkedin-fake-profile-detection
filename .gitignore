@@ -1,0 +1,13 @@
+# dataset (download with scripts/download_data.py)
+data/*.pcl
+data/*.csv
+# local runs, caches and embeddings
+results/run/
+cache/
+*.npy
+*.pkl
+*.tmp
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/

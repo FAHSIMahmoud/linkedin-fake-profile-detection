@@ -1,0 +1,91 @@
+=== INPUT FILES ===
+  results_raw.csv             14 rows
+  results_T2_seed42.csv        2 rows
+  results_T2_seeds7_123.csv    4 rows
+  results_T2_grid.csv          1 rows
+  results_T3.csv               6 rows
+  results_ablations.csv        6 rows
+  results_embeddings.csv     120 rows
+
+unique main runs: 33
+
+=== COMPLETENESS ===
+main study: 33 of 33 expected runs present
+embedding screen: 120 of 120 expected runs present
+
+=== REPRODUCIBILITY CHECK (T2 seed 42, from the interrupted run's printed output) ===
+  HGS    printed F1+ 0.9917 acc 0.9944 | rerun F1+ 0.9917 acc 0.9944 -> MATCH
+  Random printed F1+ 0.9930 acc 0.9954 | rerun F1+ 0.9930 acc 0.9954 -> MATCH
+
+=== HGS vs MATCHED-BUDGET RANDOM SEARCH (positive-class F1, paired by seed) ===
+  T1   mean diff +0.0104 | HGS better 3, tied 0, worse 0 of 3 seeds
+  T1b  mean diff -0.0009 | HGS better 0, tied 2, worse 1 of 3 seeds
+  T2   mean diff +0.0000 | HGS better 1, tied 1, worse 1 of 3 seeds
+  T3   mean diff +0.0012 | HGS better 2, tied 0, worse 1 of 3 seeds
+
+=== HGS vs EXHAUSTIVE GRID, seed 42 (test F1+ and CV objective) ===
+  T1   HGS F1+ 0.9697 (cv 0.9669, 20 models) | Grid F1+ 0.9670 (cv 0.9673, 336 models)
+  T1b  HGS F1+ 0.9779 (cv 0.9621, 19 models) | Grid F1+ 0.9833 (cv 0.9717, 336 models)
+  T2   HGS F1+ 0.9917 (cv 0.9919, 17 models) | Grid F1+ 0.9917 (cv 0.9920, 336 models)
+
+=== ABLATIONS, seed 42 (HGS, positive-class F1) ===
+  T1   main 0.9697 | no_tag_correction 0.9697 | no_full_name 0.9534
+  T1b  main 0.9779 | no_tag_correction 0.9779 | no_full_name 0.9778
+  T2   main 0.9917 | no_tag_correction 0.9917 | no_full_name 0.9903
+
+=== EMBEDDINGS: PAIRED DIFFERENCE AGAINST V0 (STE), positive-class F1 ===
+
+T1
+  V1  plain mean                   mean +0.0000 | better 0, tied 3, worse 0 of 3 seeds
+  V2  R1 renormalisation           mean -0.0008 | better 2, tied 0, worse 1 of 3 seeds
+  V3  R2, global mean              mean -0.0017 | better 1, tied 0, worse 2 of 3 seeds
+  V4  R2, per-section mean         mean -0.0025 | better 1, tied 0, worse 2 of 3 seeds
+  V5  R2 on the tag direction      mean +0.0017 | better 2, tied 0, worse 1 of 3 seeds
+  V6  ZCA whitening                mean -0.0147 | better 0, tied 0, worse 3 of 3 seeds
+  V7  STE + cosine coherence       mean -0.0009 | better 1, tied 1, worse 1 of 3 seeds
+  V8  R2 per-section + coherence   mean +0.0001 | better 1, tied 0, worse 2 of 3 seeds
+  V9  STE + L1 distances           mean -0.0009 | better 1, tied 1, worse 1 of 3 seeds
+
+T1b
+  V1  plain mean                   mean +0.0000 | better 0, tied 3, worse 0 of 3 seeds
+  V2  R1 renormalisation           mean -0.0000 | better 2, tied 0, worse 1 of 3 seeds
+  V3  R2, global mean              mean -0.0027 | better 1, tied 1, worse 1 of 3 seeds
+  V4  R2, per-section mean         mean +0.0009 | better 2, tied 0, worse 1 of 3 seeds
+  V5  R2 on the tag direction      mean -0.0010 | better 0, tied 1, worse 2 of 3 seeds
+  V6  ZCA whitening                mean -0.0189 | better 0, tied 0, worse 3 of 3 seeds
+  V7  STE + cosine coherence       mean -0.0001 | better 1, tied 1, worse 1 of 3 seeds
+  V8  R2 per-section + coherence   mean +0.0018 | better 2, tied 0, worse 1 of 3 seeds
+  V9  STE + L1 distances           mean -0.0010 | better 0, tied 2, worse 1 of 3 seeds
+
+T2
+  V1  plain mean                   mean +0.0000 | better 0, tied 3, worse 0 of 3 seeds
+  V2  R1 renormalisation           mean -0.0005 | better 1, tied 1, worse 1 of 3 seeds
+  V3  R2, global mean              mean -0.0875 | better 0, tied 0, worse 3 of 3 seeds
+  V4  R2, per-section mean         mean -0.0997 | better 0, tied 0, worse 3 of 3 seeds
+  V5  R2 on the tag direction      mean -0.0004 | better 1, tied 1, worse 1 of 3 seeds
+  V6  ZCA whitening                mean -0.0054 | better 0, tied 0, worse 3 of 3 seeds
+  V7  STE + cosine coherence       mean -0.0004 | better 2, tied 0, worse 1 of 3 seeds
+  V8  R2 per-section + coherence   mean -0.0271 | better 0, tied 0, worse 3 of 3 seeds
+  V9  STE + L1 distances           mean +0.0009 | better 1, tied 2, worse 0 of 3 seeds
+
+T3
+  V1  plain mean                   mean +0.0000 | better 0, tied 3, worse 0 of 3 seeds
+  V2  R1 renormalisation           mean -0.0002 | better 1, tied 0, worse 2 of 3 seeds
+  V3  R2, global mean              mean -0.0142 | better 0, tied 0, worse 3 of 3 seeds
+  V4  R2, per-section mean         mean -0.0297 | better 0, tied 0, worse 3 of 3 seeds
+  V5  R2 on the tag direction      mean +0.0043 | better 3, tied 0, worse 0 of 3 seeds
+  V6  ZCA whitening                mean -0.0061 | better 0, tied 0, worse 3 of 3 seeds
+  V7  STE + cosine coherence       mean +0.0055 | better 3, tied 0, worse 0 of 3 seeds
+  V8  R2 per-section + coherence   mean -0.0156 | better 0, tied 0, worse 3 of 3 seeds
+  V9  STE + L1 distances           mean +0.0040 | better 3, tied 0, worse 0 of 3 seeds
+
+=== EMBEDDINGS: AVERAGE GAIN OVER STE ACROSS TASKS ===
+  V5  R2 on the tag direction      mean +0.0011 over 4 task(s) | improves on 2
+  V7  STE + cosine coherence       mean +0.0010 over 4 task(s) | improves on 1
+  V9  STE + L1 distances           mean +0.0008 over 4 task(s) | improves on 2
+  V1  plain mean                   mean +0.0000 over 4 task(s) | improves on 0
+  V2  R1 renormalisation           mean -0.0004 over 4 task(s) | improves on 0
+  V8  R2 per-section + coherence   mean -0.0102 over 4 task(s) | improves on 2
+  V6  ZCA whitening                mean -0.0113 over 4 task(s) | improves on 0
+  V3  R2, global mean              mean -0.0265 over 4 task(s) | improves on 0
+  V4  R2, per-section mean         mean -0.0327 over 4 task(s) | improves on 1
