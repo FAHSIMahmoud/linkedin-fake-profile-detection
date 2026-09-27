@@ -1,0 +1,46 @@
+{
+  "registered_utc": "2026-09-27T22:27:26+00:00",
+  "protocol": {
+    "hypotheses": [
+      "H1: on T3 the tag-direction projection (V5) yields a higher positive-class F1 (threshold 0.5) than STE (V0) under the full HGS + fuzzy-OWA pipeline.",
+      "H2: on T3 the tag-direction projection (V5) yields a higher ROC area than STE (V0) under the same pipeline."
+    ],
+    "rationale": "Exploratory analysis on seeds 42, 7 and 123 (notebook 11) showed a small, non-significant F1 gain and a per-seed significant ROC-area gain on T3; both are tested here on new seeds.",
+    "primary_task": "T3",
+    "primary_metrics": [
+      "f1_pos",
+      "roc_auc"
+    ],
+    "variants": [
+      "V0",
+      "V5"
+    ],
+    "seeds": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010
+    ],
+    "split": "stratified 70/30 on the raw code, random_state = seed",
+    "search": "HGS pop 12, 18 iterations, patience 4; fuzzy OWA over F1, recall, ROC area; orness 0.30; gap penalty 0.50",
+    "primary_test": "for each metric, one-sided Wilcoxon signed-rank test on the paired seed differences V5 - V0; Holm correction over the two hypotheses, family-wise alpha 0.05",
+    "secondary": [
+      "Nadeau-Bengio corrected resampled t-test (one-sided)",
+      "sign test",
+      "per-seed DeLong test of ROC areas",
+      "per-seed exact McNemar test"
+    ],
+    "decision": "Each hypothesis is CONFIRMED if its Holm-adjusted p-value < 0.05 once all 10 seeds are complete; otherwise NOT CONFIRMED",
+    "excluded_seeds": [
+      7,
+      42,
+      123
+    ]
+  }
+}
