@@ -1,0 +1,79 @@
+=== Our pipeline vs the re-run published pipelines, on identical test profiles ===
+ayoobi_LR                T1b  ours=STE seed 42   F1 ours 0.9779 vs 0.9607 | dF1 +0.0172 [-0.0029, +0.0404] | McNemar 11/5 p 0.210 | DeLong p 0.024
+ayoobi_LR                T1b  ours=STE seed 7    F1 ours 0.9861 vs 0.9779 | dF1 +0.0082 [-0.0084, +0.0247] | McNemar 6/3 p 0.508 | DeLong p 0.222
+ayoobi_LR                T1b  ours=STE seed 123  F1 ours 0.9722 vs 0.9556 | dF1 +0.0167 [-0.0062, +0.0417] | McNemar 13/7 p 0.263 | DeLong p 0.042
+ayoobi_LR                T1b  ours=STE  MEAN F1 ours 0.9787 vs 0.9647 | mean dF1 +0.0140 | corrected t p 0.087
+
+ayoobi_RF                T1b  ours=STE seed 42   F1 ours 0.9779 vs 0.9239 | dF1 +0.0540 [+0.0241, +0.0850] | McNemar 25/6 p <0.001 | DeLong p 0.002
+ayoobi_RF                T1b  ours=STE seed 7    F1 ours 0.9861 vs 0.9405 | dF1 +0.0456 [+0.0198, +0.0731] | McNemar 19/3 p <0.001 | DeLong p 0.002
+ayoobi_RF                T1b  ours=STE seed 123  F1 ours 0.9722 vs 0.9444 | dF1 +0.0278 [+0.0007, +0.0559] | McNemar 17/7 p 0.064 | DeLong p 0.057
+ayoobi_RF                T1b  ours=STE  MEAN F1 ours 0.9787 vs 0.9363 | mean dF1 +0.0424 | corrected t p 0.068
+
+ayoobi_SVM-linear        T1b  ours=STE seed 42   F1 ours 0.9779 vs 0.9553 | dF1 +0.0226 [+0.0027, +0.0456] | McNemar 12/4 p 0.077 | DeLong p 0.015
+ayoobi_SVM-linear        T1b  ours=STE seed 7    F1 ours 0.9861 vs 0.9752 | dF1 +0.0109 [-0.0057, +0.0277] | McNemar 7/3 p 0.344 | DeLong p 0.172
+ayoobi_SVM-linear        T1b  ours=STE seed 123  F1 ours 0.9722 vs 0.9584 | dF1 +0.0138 [-0.0087, +0.0388] | McNemar 12/7 p 0.359 | DeLong p 0.022
+ayoobi_SVM-linear        T1b  ours=STE  MEAN F1 ours 0.9787 vs 0.9630 | mean dF1 +0.0157 | corrected t p 0.098
+
+ayoobi_SVM-poly          T1b  ours=STE seed 42   F1 ours 0.9779 vs 0.7960 | dF1 +0.1819 [+0.1336, +0.2351] | McNemar 58/5 p <0.001 | DeLong p 0.075
+ayoobi_SVM-poly          T1b  ours=STE seed 7    F1 ours 0.9861 vs 0.8688 | dF1 +0.1173 [+0.0808, +0.1583] | McNemar 39/2 p <0.001 | DeLong p 0.044
+ayoobi_SVM-poly          T1b  ours=STE seed 123  F1 ours 0.9722 vs 0.8285 | dF1 +0.1437 [+0.1007, +0.1912] | McNemar 48/5 p <0.001 | DeLong p 0.023
+ayoobi_SVM-poly          T1b  ours=STE  MEAN F1 ours 0.9787 vs 0.8311 | mean dF1 +0.1477 | corrected t p 0.035
+
+ayoobi_SVM-rbf           T1b  ours=STE seed 42   F1 ours 0.9779 vs 0.9636 | dF1 +0.0143 [-0.0054, +0.0364] | McNemar 10/5 p 0.302 | DeLong p 0.123
+ayoobi_SVM-rbf           T1b  ours=STE seed 7    F1 ours 0.9861 vs 0.9890 | dF1 -0.0029 [-0.0169, +0.0109] | McNemar 3/4 p 1.000 | DeLong p 0.538
+ayoobi_SVM-rbf           T1b  ours=STE seed 123  F1 ours 0.9722 vs 0.9665 | dF1 +0.0057 [-0.0162, +0.0284] | McNemar 9/7 p 0.804 | DeLong p 0.396
+ayoobi_SVM-rbf           T1b  ours=STE  MEAN F1 ours 0.9787 vs 0.9730 | mean dF1 +0.0057 | corrected t p 0.525
+
+gulati_catboost_extended T1   ours=STE seed 42   F1 ours 0.9697 vs 0.9425 | dF1 +0.0272 [+0.0034, +0.0515] | McNemar 15/5 p 0.041 | DeLong p 0.875
+gulati_catboost_extended T1   ours=STE seed 7    F1 ours 0.9697 vs 0.9526 | dF1 +0.0171 [-0.0103, +0.0447] | McNemar 16/10 p 0.327 | DeLong p 0.904
+gulati_catboost_extended T1   ours=STE seed 123  F1 ours 0.9721 vs 0.9518 | dF1 +0.0202 [-0.0024, +0.0435] | McNemar 12/5 p 0.143 | DeLong p 0.055
+gulati_catboost_extended T1   ours=STE  MEAN F1 ours 0.9705 vs 0.9490 | mean dF1 +0.0215 | corrected t p 0.042
+gulati_catboost_extended T3   ours=STE seed 42   F1 ours 0.9833 vs 0.9852 | dF1 -0.0019 [-0.0110, +0.0065] | McNemar 11/13 p 0.839 | DeLong p 0.056
+gulati_catboost_extended T3   ours=STE seed 7    F1 ours 0.9797 vs 0.9860 | dF1 -0.0064 [-0.0164, +0.0029] | McNemar 10/17 p 0.248 | DeLong p 0.888
+gulati_catboost_extended T3   ours=STE seed 123  F1 ours 0.9805 vs 0.9850 | dF1 -0.0046 [-0.0139, +0.0040] | McNemar 10/15 p 0.424 | DeLong p 0.140
+gulati_catboost_extended T3   ours=STE  MEAN F1 ours 0.9812 vs 0.9854 | mean dF1 -0.0043 | corrected t p 0.161
+gulati_catboost_extended T3   ours=V5 seed 42   F1 ours 0.9825 vs 0.9852 | dF1 -0.0028 [-0.0119, +0.0056] | McNemar 11/14 p 0.690 | DeLong p 0.247
+gulati_catboost_extended T3   ours=V5 seed 7    F1 ours 0.9843 vs 0.9860 | dF1 -0.0017 [-0.0117, +0.0077] | McNemar 13/15 p 0.851 | DeLong p 0.224
+gulati_catboost_extended T3   ours=V5 seed 123  F1 ours 0.9879 vs 0.9850 | dF1 +0.0028 [-0.0047, +0.0105] | McNemar 11/8 p 0.648 | DeLong p 0.487
+gulati_catboost_extended T3   ours=V5  MEAN F1 ours 0.9849 vs 0.9854 | mean dF1 -0.0006 | corrected t p 0.851
+
+gulati_catboost_three    T1   ours=STE seed 42   F1 ours 0.9697 vs 0.9366 | dF1 +0.0331 [+0.0084, +0.0589] | McNemar 17/5 p 0.017 | DeLong p 0.621
+gulati_catboost_three    T1   ours=STE seed 7    F1 ours 0.9697 vs 0.9370 | dF1 +0.0327 [+0.0037, +0.0622] | McNemar 21/9 p 0.043 | DeLong p 0.255
+gulati_catboost_three    T1   ours=STE seed 123  F1 ours 0.9721 vs 0.9462 | dF1 +0.0259 [+0.0059, +0.0488] | McNemar 12/3 p 0.035 | DeLong p 0.056
+gulati_catboost_three    T1   ours=STE  MEAN F1 ours 0.9705 vs 0.9399 | mean dF1 +0.0306 | corrected t p 0.013
+gulati_catboost_three    T3   ours=STE seed 42   F1 ours 0.9833 vs 0.9833 | dF1 +0.0000 [-0.0092, +0.0086] | McNemar 12/12 p 1.000 | DeLong p 0.031
+gulati_catboost_three    T3   ours=STE seed 7    F1 ours 0.9797 vs 0.9824 | dF1 -0.0028 [-0.0137, +0.0074] | McNemar 15/18 p 0.728 | DeLong p 0.670
+gulati_catboost_three    T3   ours=STE seed 123  F1 ours 0.9805 vs 0.9785 | dF1 +0.0019 [-0.0084, +0.0123] | McNemar 17/15 p 0.860 | DeLong p 0.197
+gulati_catboost_three    T3   ours=STE  MEAN F1 ours 0.9812 vs 0.9814 | mean dF1 -0.0003 | corrected t p 0.907
+gulati_catboost_three    T3   ours=V5 seed 42   F1 ours 0.9825 vs 0.9833 | dF1 -0.0009 [-0.0099, +0.0083] | McNemar 12/13 p 1.000 | DeLong p 0.154
+gulati_catboost_three    T3   ours=V5 seed 7    F1 ours 0.9843 vs 0.9824 | dF1 +0.0019 [-0.0089, +0.0121] | McNemar 17/15 p 0.860 | DeLong p 0.114
+gulati_catboost_three    T3   ours=V5 seed 123  F1 ours 0.9879 vs 0.9785 | dF1 +0.0094 [+0.0009, +0.0180] | McNemar 16/6 p 0.052 | DeLong p 0.252
+gulati_catboost_three    T3   ours=V5  MEAN F1 ours 0.9849 vs 0.9814 | mean dF1 +0.0035 | corrected t p 0.532
+
+gulati_xgboost_extended  T1   ours=STE seed 42   F1 ours 0.9697 vs 0.9526 | dF1 +0.0171 [-0.0051, +0.0411] | McNemar 12/6 p 0.238 | DeLong p 0.325
+gulati_xgboost_extended  T1   ours=STE seed 7    F1 ours 0.9697 vs 0.9444 | dF1 +0.0253 [-0.0026, +0.0543] | McNemar 19/10 p 0.136 | DeLong p 0.806
+gulati_xgboost_extended  T1   ours=STE seed 123  F1 ours 0.9721 vs 0.9435 | dF1 +0.0286 [+0.0051, +0.0537] | McNemar 15/5 p 0.041 | DeLong p 0.028
+gulati_xgboost_extended  T1   ours=STE  MEAN F1 ours 0.9705 vs 0.9469 | mean dF1 +0.0236 | corrected t p 0.045
+gulati_xgboost_extended  T3   ours=STE seed 42   F1 ours 0.9833 vs 0.9842 | dF1 -0.0009 [-0.0101, +0.0076] | McNemar 12/13 p 1.000 | DeLong p 0.248
+gulati_xgboost_extended  T3   ours=STE seed 7    F1 ours 0.9797 vs 0.9834 | dF1 -0.0038 [-0.0141, +0.0063] | McNemar 14/18 p 0.597 | DeLong p 0.532
+gulati_xgboost_extended  T3   ours=STE seed 123  F1 ours 0.9805 vs 0.9795 | dF1 +0.0009 [-0.0084, +0.0104] | McNemar 14/13 p 1.000 | DeLong p 0.341
+gulati_xgboost_extended  T3   ours=STE  MEAN F1 ours 0.9812 vs 0.9824 | mean dF1 -0.0012 | corrected t p 0.610
+gulati_xgboost_extended  T3   ours=V5 seed 42   F1 ours 0.9825 vs 0.9842 | dF1 -0.0018 [-0.0110, +0.0073] | McNemar 12/14 p 0.845 | DeLong p 0.743
+gulati_xgboost_extended  T3   ours=V5 seed 7    F1 ours 0.9843 vs 0.9834 | dF1 +0.0009 [-0.0091, +0.0108] | McNemar 15/14 p 1.000 | DeLong p 0.156
+gulati_xgboost_extended  T3   ours=V5 seed 123  F1 ours 0.9879 vs 0.9795 | dF1 +0.0084 [+0.0001, +0.0168] | McNemar 15/6 p 0.078 | DeLong p 0.108
+gulati_xgboost_extended  T3   ours=V5  MEAN F1 ours 0.9849 vs 0.9824 | mean dF1 +0.0025 | corrected t p 0.641
+
+gulati_xgboost_three     T1   ours=STE seed 42   F1 ours 0.9697 vs 0.9451 | dF1 +0.0246 [+0.0024, +0.0484] | McNemar 14/5 p 0.064 | DeLong p 0.200
+gulati_xgboost_three     T1   ours=STE seed 7    F1 ours 0.9697 vs 0.9418 | dF1 +0.0279 [+0.0004, +0.0568] | McNemar 19/9 p 0.087 | DeLong p 0.214
+gulati_xgboost_three     T1   ours=STE seed 123  F1 ours 0.9721 vs 0.9582 | dF1 +0.0138 [-0.0091, +0.0374] | McNemar 12/7 p 0.359 | DeLong p 0.022
+gulati_xgboost_three     T1   ours=STE  MEAN F1 ours 0.9705 vs 0.9484 | mean dF1 +0.0221 | corrected t p 0.075
+gulati_xgboost_three     T3   ours=STE seed 42   F1 ours 0.9833 vs 0.9797 | dF1 +0.0037 [-0.0065, +0.0138] | McNemar 17/13 p 0.585 | DeLong p 0.350
+gulati_xgboost_three     T3   ours=STE seed 7    F1 ours 0.9797 vs 0.9778 | dF1 +0.0018 [-0.0092, +0.0125] | McNemar 19/17 p 0.868 | DeLong p 0.346
+gulati_xgboost_three     T3   ours=STE seed 123  F1 ours 0.9805 vs 0.9767 | dF1 +0.0037 [-0.0057, +0.0138] | McNemar 16/12 p 0.572 | DeLong p 0.621
+gulati_xgboost_three     T3   ours=STE  MEAN F1 ours 0.9812 vs 0.9781 | mean dF1 +0.0031 | corrected t p 0.080
+gulati_xgboost_three     T3   ours=V5 seed 42   F1 ours 0.9825 vs 0.9797 | dF1 +0.0028 [-0.0073, +0.0129] | McNemar 17/14 p 0.720 | DeLong p 0.671
+gulati_xgboost_three     T3   ours=V5 seed 7    F1 ours 0.9843 vs 0.9778 | dF1 +0.0065 [-0.0046, +0.0176] | McNemar 22/15 p 0.324 | DeLong p 0.049
+gulati_xgboost_three     T3   ours=V5 seed 123  F1 ours 0.9879 vs 0.9767 | dF1 +0.0111 [+0.0025, +0.0206] | McNemar 19/7 p 0.029 | DeLong p 0.033
+gulati_xgboost_three     T3   ours=V5  MEAN F1 ours 0.9849 vs 0.9781 | mean dF1 +0.0068 | corrected t p 0.203
+
+Ayoobi-style average of the five classifiers on T1b (as they report): accuracy 0.9387, F1 0.9336 (mean of 3 splits)

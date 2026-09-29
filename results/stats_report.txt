@@ -1,0 +1,95 @@
+=== 1. Rebuilding stored models and checking they reproduce the stored results ===
+runs rebuilt: 53 | exact match with stored confusion counts: 52 | differ: 1
+   DIFFERS (excluded from the tests below): ('peerj', 'V0', 'stratified', 42, 'HGS')
+
+=== 2. 95% bootstrap intervals for the headline results (HGS, stratified bootstrap of the test set) ===
+T1   STE  f1_pos    mean of 3 splits 0.9706  95% CI [0.9604, 0.9797]
+T1   STE  accuracy  mean of 3 splits 0.9852  95% CI [0.9801, 0.9898]
+T1   STE  roc_auc   mean of 3 splits 0.9976  95% CI [0.9960, 0.9989]
+T1   V5   f1_pos    mean of 3 splits 0.9685  95% CI [0.9577, 0.9785]
+T1   V5   accuracy  mean of 3 splits 0.9843  95% CI [0.9792, 0.9894]
+T1   V5   roc_auc   mean of 3 splits 0.9977  95% CI [0.9959, 0.9990]
+T1b  STE  f1_pos    mean of 3 splits 0.9788  95% CI [0.9695, 0.9870]
+T1b  STE  accuracy  mean of 3 splits 0.9788  95% CI [0.9694, 0.9870]
+T1b  STE  roc_auc   mean of 3 splits 0.9976  95% CI [0.9957, 0.9989]
+T1b  V5   f1_pos    mean of 3 splits 0.9777  95% CI [0.9684, 0.9861]
+T1b  V5   accuracy  mean of 3 splits 0.9778  95% CI [0.9685, 0.9861]
+T1b  V5   roc_auc   mean of 3 splits 0.9979  95% CI [0.9962, 0.9990]
+T2   STE  f1_pos    mean of 3 splits 0.9939  95% CI [0.9907, 0.9968]
+T2   STE  accuracy  mean of 3 splits 0.9960  95% CI [0.9938, 0.9978]
+T2   STE  roc_auc   mean of 3 splits 0.9999  95% CI [0.9998, 1.0000]
+T2   V5   f1_pos    mean of 3 splits 0.9926  95% CI [0.9889, 0.9958]
+T2   V5   accuracy  mean of 3 splits 0.9950  95% CI [0.9926, 0.9972]
+T2   V5   roc_auc   mean of 3 splits 0.9999  95% CI [0.9999, 1.0000]
+T3   STE  f1_pos    mean of 3 splits 0.9811  95% CI [0.9763, 0.9858]
+T3   STE  accuracy  mean of 3 splits 0.9812  95% CI [0.9762, 0.9858]
+T3   STE  roc_auc   mean of 3 splits 0.9974  95% CI [0.9960, 0.9986]
+T3   V5   f1_pos    mean of 3 splits 0.9849  95% CI [0.9807, 0.9889]
+T3   V5   accuracy  mean of 3 splits 0.9849  95% CI [0.9806, 0.9889]
+T3   V5   roc_auc   mean of 3 splits 0.9986  95% CI [0.9976, 0.9994]
+
+=== 3. Paired comparisons on identical test profiles ===
+--- projection (V5) vs STE (V0), both HGS ---
+T1   seed 42   dF1 +0.0002 [-0.0079, +0.0085] | DeLong p 0.414 | McNemar 1/1 p 1.000 | detectable at 80% power: 0.0108
+T1   seed 7    dF1 -0.0063 [-0.0237, +0.0104] | DeLong p 0.270 | McNemar 4/6 p 0.754 | detectable at 80% power: 0.0249
+T1   seed 123  dF1 -0.0002 [-0.0116, +0.0112] | DeLong p 0.933 | McNemar 2/2 p 1.000 | detectable at 80% power: 0.0161
+T1   across 3 seeds: mean dF1 -0.0021 | corrected resampled t two-sided p 0.577
+T1b  seed 42   dF1 -0.0030 [-0.0198, +0.0134] | DeLong p 0.318 | McNemar 4/5 p 1.000 | detectable at 80% power: 0.0233
+T1b  seed 7    dF1 +0.0028 [-0.0055, +0.0115] | DeLong p 0.508 | McNemar 2/1 p 1.000 | detectable at 80% power: 0.0134
+T1b  seed 123  dF1 -0.0029 [-0.0088, +0.0000] | DeLong p 0.587 | McNemar 0/1 p 1.000 | detectable at 80% power: 0.0081
+T1b  across 3 seeds: mean dF1 -0.0010 | corrected resampled t two-sided p 0.761
+T2   seed 42   dF1 +0.0014 [-0.0027, +0.0070] | DeLong p 0.194 | McNemar 2/1 p 1.000 | detectable at 80% power: 0.0068
+T2   seed 7    dF1 -0.0014 [-0.0082, +0.0042] | DeLong p 0.352 | McNemar 2/3 p 1.000 | detectable at 80% power: 0.0087
+T2   seed 123  dF1 -0.0041 [-0.0096, +0.0000] | DeLong p 0.346 | McNemar 0/3 p 0.250 | detectable at 80% power: 0.0066
+T2   across 3 seeds: mean dF1 -0.0014 | corrected resampled t two-sided p 0.632
+T3   seed 42   dF1 -0.0009 [-0.0037, +0.0019] | DeLong p 0.009 | McNemar 1/2 p 1.000 | detectable at 80% power: 0.0044
+T3   seed 7    dF1 +0.0047 [-0.0018, +0.0120] | DeLong p 0.021 | McNemar 10/5 p 0.302 | detectable at 80% power: 0.0099
+T3   seed 123  dF1 +0.0074 [+0.0000, +0.0150] | DeLong p 0.028 | McNemar 12/4 p 0.077 | detectable at 80% power: 0.0105
+T3   across 3 seeds: mean dF1 +0.0037 | corrected resampled t two-sided p 0.418
+--- HGS vs matched-budget random search (STE) ---
+T1   seed 42   dF1 +0.0168 [+0.0029, +0.0338] | DeLong p 0.481 | McNemar 7/1 p 0.070 | detectable at 80% power: 0.0219
+T1   seed 7    dF1 +0.0088 [-0.0069, +0.0257] | DeLong p 0.976 | McNemar 6/3 p 0.508 | detectable at 80% power: 0.0231
+T1   seed 123  dF1 +0.0056 [+0.0000, +0.0142] | DeLong p 0.170 | McNemar 2/0 p 0.500 | detectable at 80% power: 0.0109
+T1   across 3 seeds: mean dF1 +0.0104 | corrected resampled t two-sided p 0.175
+T1b  seed 42   dF1 -0.0027 [-0.0134, +0.0055] | DeLong p 0.187 | McNemar 1/2 p 1.000 | detectable at 80% power: 0.0132
+T1b  seed 7    dF1 +0.0000 [+0.0000, +0.0000] | DeLong p 1.000 | McNemar 0/0 p 1.000 | detectable at 80% power: 0.0000
+T1b  seed 123  dF1 +0.0000 [+0.0000, +0.0000] | DeLong p 0.453 | McNemar 0/0 p 1.000 | detectable at 80% power: 0.0000
+T1b  across 3 seeds: mean dF1 -0.0009 | corrected resampled t two-sided p 0.576
+T2   seed 42   dF1 -0.0014 [-0.0041, +0.0000] | DeLong p 0.875 | McNemar 0/1 p 1.000 | detectable at 80% power: 0.0039
+T2   seed 7    dF1 +0.0000 [+0.0000, +0.0000] | DeLong p 1.000 | McNemar 0/0 p 1.000 | detectable at 80% power: 0.0000
+T2   seed 123  dF1 +0.0014 [+0.0000, +0.0041] | DeLong p 1.000 | McNemar 1/0 p 1.000 | detectable at 80% power: 0.0039
+T2   across 3 seeds: mean dF1 +0.0000 | corrected resampled t two-sided p 0.999
+T3   seed 42   dF1 +0.0028 [-0.0009, +0.0074] | DeLong p 0.087 | McNemar 4/1 p 0.375 | detectable at 80% power: 0.0058
+T3   seed 7    dF1 +0.0009 [-0.0027, +0.0054] | DeLong p 0.033 | McNemar 3/2 p 1.000 | detectable at 80% power: 0.0058
+T3   seed 123  dF1 -0.0001 [-0.0058, +0.0055] | DeLong p 0.102 | McNemar 5/5 p 1.000 | detectable at 80% power: 0.0083
+T3   across 3 seeds: mean dF1 +0.0012 | corrected resampled t two-sided p 0.445
+
+=== 4. Comparison with the published figures ===
+T1   STE  f1_pos   ours 0.9706 [0.9604, 0.9797] vs 0.9708 (Gulati et al., best configuration): published value fixed -> level | two-sample z -0.02 p 0.987 -> level
+T1   STE  f1_pos   ours 0.9706 [0.9604, 0.9797] vs 0.9639 (Gulati et al., weakest configuration): published value fixed -> level | two-sample z 0.45 p 0.651 -> level
+T1b  STE  accuracy ours 0.9788 [0.9694, 0.9870] vs 0.9633 (Ayoobi et al., best embedding): published value fixed -> higher | two-sample z 1.42 p 0.154 -> level
+T1b  STE  accuracy ours 0.9788 [0.9694, 0.9870] vs 0.9417 (Ayoobi et al., weakest embedding): published value fixed -> higher | two-sample z 2.82 p 0.005 -> higher
+T3   STE  f1_pos   ours 0.9811 [0.9763, 0.9858] vs 0.9820 (Gulati et al., best retrained): published value fixed -> level | two-sample z -0.14 p 0.889 -> level
+T3   V5   f1_pos   ours 0.9849 [0.9807, 0.9889] vs 0.9820 (Gulati et al., best retrained): published value fixed -> level | two-sample z 0.48 p 0.634 -> level
+--- four-class task (Mohiuddin and Almogren) ---
+T4   STE  macro_f1     ours 0.9616 [0.9456, 0.9762] vs 0.9608: published value fixed -> level | two-sample p 0.943
+T4   STE  accuracy     ours 0.9653 [0.9514, 0.9778] vs 0.9611: published value fixed -> level | two-sample p 0.675
+T4   STE  macro_recall ours 0.9642 [0.9486, 0.9783] vs 0.9500: published value fixed -> level | two-sample p 0.202
+T4   V5   macro_f1     ours 0.9601 [0.9436, 0.9753] vs 0.9608: published value fixed -> level | two-sample p 0.952
+T4   V5   accuracy     ours 0.9667 [0.9528, 0.9792] vs 0.9611: published value fixed -> level | two-sample p 0.570
+T4   V5   macro_recall ours 0.9609 [0.9440, 0.9760] vs 0.9500: published value fixed -> level | two-sample p 0.345
+
+=== 5. What the paper can claim ===
+- T1 STE f1_pos: 0.9706 is statistically level with 0.9708 (Gulati et al., best configuration)
+- T1 STE f1_pos: 0.9706 is statistically level with 0.9639 (Gulati et al., weakest configuration)
+- T1b STE accuracy: 0.9788 is statistically level with 0.9633 (Ayoobi et al., best embedding)
+- T1b STE accuracy: 0.9788 is significantly higher than 0.9417 (Ayoobi et al., weakest embedding)
+- T3 STE f1_pos: 0.9811 is statistically level with 0.9820 (Gulati et al., best retrained)
+- T3 V5 f1_pos: 0.9849 is statistically level with 0.9820 (Gulati et al., best retrained)
+- T4 STE macro_f1: 0.9616 is statistically level with 0.9608 (Mohiuddin and Almogren)
+- T4 STE accuracy: 0.9653 is statistically level with 0.9611 (Mohiuddin and Almogren)
+- T4 STE macro_recall: 0.9642 is statistically level with 0.9500 (Mohiuddin and Almogren)
+- T4 V5 macro_f1: 0.9601 is statistically level with 0.9608 (Mohiuddin and Almogren)
+- T4 V5 accuracy: 0.9667 is statistically level with 0.9611 (Mohiuddin and Almogren)
+- T4 V5 macro_recall: 0.9609 is statistically level with 0.9500 (Mohiuddin and Almogren)
+Rule used: 'higher' only when the two-sample test (which counts the sampling error of both evaluations) gives p < 0.05.

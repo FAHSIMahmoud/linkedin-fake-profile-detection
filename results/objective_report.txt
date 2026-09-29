@@ -1,0 +1,22 @@
+=== Each objective against the paper's (owa_gap), paired by task and seed ===
+objective   pairs  test F1 diff (Wilcoxon p)  optimism diff (p)          overfit gap diff (p)       same model chosen
+owa_nogap      12  -0.0004 (0.625)            +0.0010 (0.125)            +0.0023 (0.125)            58%
+mean_gap       12  -0.0007 (0.500)            +0.0004 (0.500)            +0.0015 (0.500)            67%
+f1_cv          12  -0.0012 (0.055)            +0.0026 (0.016)            +0.0034 (0.055)            17%
+
+=== Mean test F1 and its spread across seeds, per task ===
+objective             f1_cv          mean_gap           owa_gap         owa_nogap
+task                                                                             
+T1         0.9673 +- 0.0040  0.9678 +- 0.0030  0.9705 +- 0.0014  0.9695 +- 0.0025
+T1b        0.9787 +- 0.0070  0.9787 +- 0.0070  0.9787 +- 0.0070  0.9787 +- 0.0070
+T2         0.9935 +- 0.0016  0.9940 +- 0.0029  0.9940 +- 0.0029  0.9940 +- 0.0029
+T3         0.9800 +- 0.0023  0.9812 +- 0.0019  0.9812 +- 0.0019  0.9806 +- 0.0024
+
+=== Models evaluated per search (mean) ===
+objective
+f1_cv        22.2
+mean_gap     19.8
+owa_gap      20.3
+owa_nogap    21.8
+
+Reading guide: a negative optimism or overfit-gap difference means the alternative objective chose models whose cross-validated or training score over-promised LESS than the paper's; the paper's objective is supported if the alternatives show larger optimism or overfitting without higher test F1.

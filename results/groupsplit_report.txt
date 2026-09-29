@@ -1,0 +1,53 @@
+=== 1. The paper's random-split models: recall on manual fakes WITH vs WITHOUT a template in training ===
+task var  seed  with template: caught/total   without: caught/total   (exact test p, one-sided: with > without)
+T1   STE  42     79/79  = 1.000                97/101 = 0.960        p 0.097
+T1   STE  7      78/78  = 1.000                98/102 = 0.961        p 0.100
+T1   STE  123    80/80  = 1.000                94/100 = 0.940        p 0.027
+T1   V5   42     79/79  = 1.000                98/101 = 0.970        p 0.174
+T1   V5   7      77/78  = 0.987                94/102 = 0.922        p 0.043
+T1   V5   123    80/80  = 1.000                93/100 = 0.930        p 0.015
+T1b  STE  42     74/74  = 1.000               103/106 = 0.972        p 0.202
+T1b  STE  7      84/84  = 1.000                93/96  = 0.969        p 0.149
+T1b  STE  123    70/70  = 1.000               105/110 = 0.955        p 0.082
+T1b  V5   42     74/74  = 1.000               101/106 = 0.953        p 0.068
+T1b  V5   7      84/84  = 1.000                94/96  = 0.979        p 0.283
+T1b  V5   123    70/70  = 1.000               104/110 = 0.945        p 0.049
+T3   STE  42     78/79  = 0.987                95/101 = 0.941        p 0.109
+T3   STE  7      78/78  = 1.000                92/102 = 0.902        p 0.003
+T3   STE  123    80/80  = 1.000                88/100 = 0.880        p <0.001
+T3   V5   42     79/79  = 1.000                95/101 = 0.941        p 0.029
+T3   V5   7      78/78  = 1.000                96/102 = 0.941        p 0.031
+T3   V5   123    80/80  = 1.000                90/100 = 0.900        p 0.002
+T1   STE  pooled: recall 1.000 with template vs 0.954 without (difference +0.046, p <0.001)
+T1   V5   pooled: recall 0.996 with template vs 0.941 without (difference +0.055, p <0.001)
+T1b  STE  pooled: recall 1.000 with template vs 0.965 without (difference +0.035, p 0.002)
+T1b  V5   pooled: recall 1.000 with template vs 0.958 without (difference +0.042, p <0.001)
+T3   STE  pooled: recall 0.996 with template vs 0.908 without (difference +0.088, p <0.001)
+T3   V5   pooled: recall 1.000 with template vs 0.927 without (difference +0.073, p <0.001)
+
+=== 2. Group-aware split vs the paper's random split (HGS, mean over seeds; different test sets, not paired) ===
+task var   F1 random [95% CI]           F1 group [95% CI]            difference [95% CI]      recall manual fakes random -> group
+T1   STE  0.9705 [0.9598, 0.9799]     0.9619 [0.9491, 0.9730]     -0.0086 [-0.0247, +0.0067]    0.974 -> 0.981
+T1   V5   0.9684 [0.9575, 0.9787]     0.9624 [0.9500, 0.9745]     -0.0060 [-0.0218, +0.0104]    0.965 -> 0.973
+T1b  STE  0.9787 [0.9697, 0.9870]     0.9718 [0.9610, 0.9825]     -0.0069 [-0.0201, +0.0062]    0.980 -> 0.980
+T1b  V5   0.9777 [0.9682, 0.9861]     0.9756 [0.9654, 0.9854]     -0.0021 [-0.0151, +0.0111]    0.976 -> 0.979
+T3   STE  0.9812 [0.9763, 0.9858]     0.9843 [0.9800, 0.9883]     +0.0032 [-0.0031, +0.0095]    0.946 -> 0.964
+T3   V5   0.9849 [0.9809, 0.9889]     0.9853 [0.9812, 0.9894]     +0.0004 [-0.0054, +0.0061]    0.959 -> 0.967
+
+=== 3. Projection (V5) vs STE (V0) under the group-aware split (paired) ===
+T1   seed 42   dF1 -0.0041 [-0.0161, +0.0072] | DeLong p 0.518 | McNemar 1/2 p 1.000
+T1   seed 7    dF1 +0.0020 [-0.0146, +0.0180] | DeLong p 0.077 | McNemar 5/4 p 1.000
+T1   seed 123  dF1 +0.0037 [-0.0202, +0.0285] | DeLong p 1.000 | McNemar 8/7 p 1.000
+T1   mean dF1 +0.0005 | corrected resampled t two-sided p 0.902
+T1b  seed 42   dF1 +0.0087 [-0.0060, +0.0237] | DeLong p 0.115 | McNemar 5/2 p 0.453
+T1b  seed 7    dF1 +0.0029 [+0.0000, +0.0088] | DeLong p 0.243 | McNemar 1/0 p 1.000
+T1b  seed 123  dF1 -0.0002 [-0.0112, +0.0102] | DeLong p 0.138 | McNemar 1/1 p 1.000
+T1b  mean dF1 +0.0038 | corrected resampled t two-sided p 0.441
+T3   seed 42   dF1 +0.0020 [-0.0031, +0.0081] | DeLong p 0.143 | McNemar 5/3 p 0.727
+T3   seed 7    dF1 +0.0026 [-0.0028, +0.0088] | DeLong p 0.602 | McNemar 7/4 p 0.549
+T3   seed 123  dF1 -0.0018 [-0.0073, +0.0037] | DeLong p 0.831 | McNemar 4/6 p 0.754
+T3   mean dF1 +0.0009 | corrected resampled t two-sided p 0.694
+
+Reading guide: a large drop from random to group split, concentrated on manual fakes, means that part of the
+random-split score came from recognising reused templates. The group-aware figures are the honest estimate for
+fakes from a campaign the detector has never seen.

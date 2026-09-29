@@ -1,0 +1,20 @@
+=== T3: V5 (projection) vs V0 (STE), 10 of 10 seeds complete (PRIMARY) ===
+seed   F1 V0   F1 V5   diff     95% CI (paired bootstrap)   AUC V0   AUC V5   diff     DeLong p   McNemar (V5/V0 only, p)
+1001   0.9861  0.9870  +0.0009   [-0.0038, +0.0055]         0.9986   0.9992   +0.0006   0.113      4 / 3, 1.000
+1002   0.9851  0.9898  +0.0047   [-0.0009, +0.0104]         0.9977   0.9970   -0.0008   0.443      7 / 2, 0.180
+1003   0.9917  0.9916  -0.0000   [-0.0047, +0.0055]         0.9979   0.9982   +0.0002   0.413      4 / 4, 1.000
+1004   0.9788  0.9880  +0.0092   [+0.0019, +0.0167]         0.9980   0.9989   +0.0009   0.033      14 / 4, 0.031
+1005   0.9898  0.9897  -0.0001   [-0.0056, +0.0054]         0.9989   0.9995   +0.0005   0.044      4 / 4, 1.000
+1006   0.9871  0.9917  +0.0046   [-0.0009, +0.0101]         0.9983   0.9968   -0.0015   0.178      7 / 2, 0.180
+1007   0.9870  0.9888  +0.0018   [-0.0038, +0.0074]         0.9990   0.9985   -0.0004   0.321      6 / 4, 0.754
+1008   0.9889  0.9889  +0.0000   [-0.0047, +0.0047]         0.9985   0.9979   -0.0007   0.478      4 / 4, 1.000
+1009   0.9833  0.9852  +0.0019   [-0.0045, +0.0084]         0.9979   0.9989   +0.0010   0.120      7 / 5, 0.774
+1010   0.9824  0.9861  +0.0037   [-0.0009, +0.0092]         0.9973   0.9976   +0.0003   0.664      6 / 2, 0.289
+F1       mean difference +0.0027 (95% CI over seeds [+0.0011, +0.0045]); V5 better in 7, tied in 1, worse in 2 seeds
+         Wilcoxon one-sided p = 0.010 | corrected resampled t = 1.25, one-sided p = 0.121 | sign test p = 0.090
+ROC area mean difference +0.0000 (95% CI over seeds [-0.0005, +0.0005]); V5 better in 6, tied in 0, worse in 4 seeds
+         Wilcoxon one-sided p = 0.461 | corrected resampled t = 0.05, one-sided p = 0.479 | sign test p = 0.377
+PRE-REGISTERED DECISIONS (Holm-adjusted, family-wise alpha 0.05):
+  F1       raw p 0.010, adjusted p 0.020 -> CONFIRMED
+  ROC area raw p 0.461, adjusted p 0.461 -> NOT CONFIRMED
+Suggested wording: 'On 10 new splits fixed before the experiment, the projection improved F1 (mean +0.27 points, Holm-adjusted p = 0.020) on T3, whereas its gain in ROC area (mean +0.0000, Holm-adjusted p = 0.461) was not confirmed.'

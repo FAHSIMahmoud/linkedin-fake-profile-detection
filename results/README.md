@@ -38,3 +38,19 @@ Embedding variants: V0 STE (tag subtraction), V1 plain mean, V2 R1 renormalizati
 global mean, V4 R2 with per-section means, V5 projection off the tag direction, V6 ZCA whitening,
 V7 STE plus cross-section cosine coherence, V8 V4 plus coherence, V9 STE plus L1 distances between
 sections.
+
+## Files added in version 1.2.0
+
+| file | produced by | contents |
+|---|---|---|
+| `results_confirm.csv`, `confirm_summary.txt` | 10 | pre-registered confirmation on seeds 1001-1010: one row per variant and seed; decision under Holm correction |
+| `stats_report.txt`, `stats_claims.csv`, `stats_intervals.csv` | 11 | rebuild check (52 of 53 stored runs reproduced exactly), bootstrap intervals, paired tests, tests against published figures |
+| `results_baselines.csv`, `baselines_report.txt` | 12 | re-implemented published detectors on our test profiles, paired tests |
+| `results_objective.csv`, `objective_report.txt` | 13 | objective ablation |
+| `results_emscad.csv`, `emscad_report.txt` | 14 | EMSCAD external validation |
+| `results_groupsplit.csv`, `groupsplit_report.txt` | 15 | template-group splits |
+
+Revised paper (version 2) items: Table III and IV and Fig. 4 from `stats_intervals.csv` and `stats_claims.csv`;
+Table V from `results_baselines.csv`; Table VI from `groupsplit_report.txt`; Fig. 6 from `stats_report.txt`,
+`confirm_summary.txt`, `groupsplit_report.txt` and `emscad_report.txt`; Table VII from `stats_report.txt`,
+`emscad_report.txt` and `objective_report.txt`; Table IX from `emscad_report.txt`.

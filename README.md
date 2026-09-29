@@ -4,7 +4,7 @@
 
 Code and results for the paper *Fake LinkedIn Profile Detection across Manual and LLM-Generated
 Threats: Tag-Direction Projection and Fuzzy OWA Hyperparameter Search* (M. Fahsi, N. Mahammed,
-A. Kourtich, L. Septem Riza, C. Mouilah), submitted to *Advances in Electrical and Computer
+A. Kourtiche, L. Septem Riza, C. Mouilah), submitted to *Advances in Electrical and Computer
 Engineering*.
 
 The repository contains every notebook used in the paper, the result files behind each table and
@@ -69,16 +69,32 @@ so an interrupted notebook resumes where it stopped when re-run from the top.
 | `08_peerj_4class` | four-class task of Mohiuddin and Almogren (2025) | about 4 h | `results_peerj.csv`, `peerj_summary.txt` |
 | `09_best_embedding_hgs` | best screen variant under the full HGS pipeline, paired with STE | about 2.6 h | `results_bestemb.csv`, `bestemb_summary.txt` |
 
+### Notebooks added in version 1.2.0 (statistical checks and external validation)
+
+| notebook | purpose | runtime | writes |
+|---|---|---|---|
+| `10_concern1_new_seed_confirmation` | pre-registered test of the projection (V5) against STE on T3, ten new seeds (1001-1010), F1 and ROC area, Holm correction; protocol in `preregistration_confirm.json` (commit 0f82b13) | about 5 h | `results_confirm.csv`, `confirm_summary.txt` |
+| `11_concern2_statistics` | rebuilds the stored models, bootstrap intervals, paired tests (DeLong, McNemar, corrected resampled t), tests against the published figures | 10-20 min | `stats_report.txt`, `stats_claims.csv`, `stats_intervals.csv` |
+| `12_concern3_published_baselines` | re-implemented detectors of Gulati et al. (XGBoost, CatBoost) and Ayoobi et al. (five classifiers) on our test profiles | about 16 h, GPU for CatBoost | `results_baselines.csv`, `baselines_report.txt` |
+| `13_concern4_objective_ablation` | the OWA objective against three alternatives (no gap penalty, arithmetic means, mean CV F1) | several hours | `results_objective.csv`, `objective_report.txt` |
+| `14_concern5_job_postings_validation` | external validation on EMSCAD (fraudulent job postings): composition test, projection, duplicate leakage, HGS against random search | about 21 h, GPU once | `results_emscad.csv`, `emscad_report.txt` |
+| `15_template_group_split` | manual fakes that reuse text templates: memorization diagnostic and group-aware re-run of T1, T1b and T3 | about 5 h | `results_groupsplit.csv`, `groupsplit_report.txt` |
+
+Notebook 14 needs `fake_job_postings.csv` (EMSCAD, Vidros et al. 2017, available on Kaggle as
+"Real or Fake Job Posting Prediction") in the data folder; its results go to a separate folder
+(`EMSCAD_OUT_DIR`, default `emscad_validation/`).
+
 Runtimes are the sums of the times recorded in the result files. They were taken on shared Colab machines and indicate orders of magnitude.
 
 ## Results
 
-[`results/`](results/) holds the files produced by notebooks 00-09 for the paper, and
+[`results/`](results/) holds the files produced by notebooks 00-15 for the paper, and
 [`results/README.md`](results/README.md) maps each file to the tables and figures it supports. To
 redraw the figures:
 
 ```bash
-python scripts/make_figures.py
+python scripts/make_figures.py        # figures of notebooks 00-09
+python scripts/make_figures_v2.py     # Fig. 4 and Fig. 6 of the revised paper
 ```
 
 ## Reproducibility
