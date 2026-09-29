@@ -1,0 +1,47 @@
+=== Results, mean +- SD over splits (positive class = fraudulent) ===
+                                     f1_pos     precision_pos        recall_pos           roc_auc            pr_auc               mcc          f1_macro          accuracy
+protocol strategy variant                                                                                                                                                
+dedup    HGS      V0       0.5410 +- 0.0360  0.3936 +- 0.0409  0.8707 +- 0.0143  0.9630 +- 0.0028  0.6940 +- 0.0344  0.5584 +- 0.0283  0.7525 +- 0.0210  0.9331 +- 0.0107
+                  V1       0.5510 +- 0.0229  0.4077 +- 0.0262  0.8520 +- 0.0235  0.9597 +- 0.0034  0.6786 +- 0.0551  0.5634 +- 0.0195  0.7587 +- 0.0131  0.9374 +- 0.0063
+                  V1c      0.5444 +- 0.0096  0.3998 +- 0.0167  0.8551 +- 0.0292  0.9615 +- 0.0047  0.6829 +- 0.0541  0.5583 +- 0.0042  0.7549 +- 0.0060  0.9356 +- 0.0045
+                  V5       0.5391 +- 0.0434  0.3972 +- 0.0441  0.8427 +- 0.0097  0.9527 +- 0.0050  0.6410 +- 0.0630  0.5513 +- 0.0392  0.7520 +- 0.0248  0.9347 +- 0.0111
+         Random   V5       0.4976 +- 0.0394  0.3524 +- 0.0401  0.8520 +- 0.0189  0.9516 +- 0.0047  0.6205 +- 0.0626  0.5174 +- 0.0334  0.7277 +- 0.0232  0.9221 +- 0.0126
+full     HGS      V0       0.6186 +- 0.0119  0.4810 +- 0.0271  0.8705 +- 0.0408  0.9658 +- 0.0083  0.7266 +- 0.0173  0.6240 +- 0.0038  0.7953 +- 0.0074  0.9479 +- 0.0050
+                  V5       0.6039 +- 0.0214  0.4739 +- 0.0098  0.8333 +- 0.0556  0.9582 +- 0.0055  0.6914 +- 0.0067  0.6046 +- 0.0278  0.7878 +- 0.0110  0.9471 +- 0.0016
+
+=== Composition hypothesis (paper, Discussion): the tag term helps only through section composition ===
+--- STE (V0) vs plain mean (V1): does subtracting the tag help when sections vary? ---
+seed 42   dF1 +0.0085 [-0.0050, +0.0217] | AUC 0.9620 vs 0.9600, DeLong p 0.061 | McNemar 41/30 p 0.235
+seed 7    dF1 +0.0009 [-0.0149, +0.0173] | AUC 0.9661 vs 0.9629, DeLong p 0.004 | McNemar 33/32 p 1.000
+seed 123  dF1 -0.0393 [-0.0635, -0.0142] | AUC 0.9609 vs 0.9561, DeLong p 0.004 | McNemar 44/118 p <0.001
+mean dF1 -0.0100 | corrected resampled t two-sided p 0.700
+--- plain mean + explicit composition (V1c) vs STE (V0): does composition explain it? ---
+seed 42   dF1 +0.0005 [-0.0101, +0.0114] | AUC 0.9612 vs 0.9620, DeLong p 0.397 | McNemar 20/21 p 1.000
+seed 7    dF1 -0.0403 [-0.0628, -0.0177] | AUC 0.9663 vs 0.9661, DeLong p 0.913 | McNemar 49/100 p <0.001
+seed 123  dF1 +0.0499 [+0.0242, +0.0740] | AUC 0.9570 vs 0.9609, DeLong p 0.022 | McNemar 127/39 p <0.001
+mean dF1 +0.0034 | corrected resampled t two-sided p 0.940
+Prediction: STE beats the plain mean (significantly) AND explicit composition features do at least as well as STE.
+  STE > plain mean: no | composition features >= STE: yes -> NOT SUPPORTED: the tag term adds nothing here
+
+=== Tag-direction projection ===
+--- projection (V5) vs STE (V0) ---
+seed 42   dF1 +0.0243 [+0.0049, +0.0430] | AUC 0.9569 vs 0.9620, DeLong p 0.077 | McNemar 69/30 p <0.001
+seed 7    dF1 -0.0138 [-0.0297, +0.0007] | AUC 0.9540 vs 0.9661, DeLong p <0.001 | McNemar 26/40 p 0.109
+seed 123  dF1 -0.0163 [-0.0408, +0.0068] | AUC 0.9471 vs 0.9609, DeLong p <0.001 | McNemar 79/81 p 0.937
+mean dF1 -0.0020 | corrected resampled t two-sided p 0.930
+
+=== Search strategy ===
+--- HGS vs matched-budget random search (V5) ---
+seed 42   dF1 +0.1015 [+0.0750, +0.1271] | AUC 0.9569 vs 0.9512, DeLong p 0.041 | McNemar 184/32 p <0.001
+seed 7    dF1 +0.0228 [+0.0030, +0.0428] | AUC 0.9540 vs 0.9564, DeLong p 0.414 | McNemar 69/40 p 0.007
+seed 123  dF1 +0.0000 [+0.0000, +0.0000] | AUC 0.9471 vs 0.9471, DeLong p 1.000 | McNemar 0/0 p 1.000
+mean dF1 +0.0414 | corrected resampled t two-sided p 0.467
+
+=== Duplicate leakage: full data vs one copy per duplicate group (different test sets, not paired) ===
+V0: F1 0.6186 (full) vs 0.5410 (dedup), difference +0.0776 | ROC area 0.9658 vs 0.9630 | test postings with a copy in training: 13.6% (fraudulent: 19.7%)
+V5: F1 0.6039 (full) vs 0.5391 (dedup), difference +0.0649 | ROC area 0.9582 vs 0.9527 | test postings with a copy in training: 13.6% (fraudulent: 19.7%)
+
+=== Published results on EMSCAD (verify each against the paper before citing) ===
+Vidros et al. 2017, Future Internet 9(1):6 - full imbalanced data, random forest: accuracy 0.895, fraudulent precision 0.282, recall 0.751 (verified from the paper, Sec. 6.4)
+Amaar et al. 2022, Neural Processing Letters - extra trees, TF-IDF, ADASYN: accuracy 0.999 (abstract; the order of oversampling and splitting could not be verified)
+Our comparable figures: the 'full' protocol (same data as the literature) and the 'dedup' protocol (leakage-free).
