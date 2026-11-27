@@ -1,8 +1,8 @@
 [![DOI](https://zenodo.org/badge/1389185997.svg)](https://doi.org/10.5281/zenodo.22978171)
 
-# Fake LinkedIn Profile Detection across Manual and LLM-Generated Threats
+# Fake LinkedIn Profile Detection Across Manual and LLM-Generated Threats
 
-Code and results for the paper *Fake LinkedIn Profile Detection across Manual and LLM-Generated
+Code and results for the paper *Fake LinkedIn Profile Detection Across Manual and LLM-Generated
 Threats: Tag-Direction Projection and Fuzzy OWA Hyperparameter Search* (M. Fahsi, N. Mahammed,
 A. Kourtiche, L. Septem Riza, C. Mouilah), submitted to *Advances in Electrical and Computer
 Engineering*.
@@ -130,3 +130,12 @@ A machine-readable citation is in [`CITATION.cff`](CITATION.cff).
 
 The code is released under the MIT licence ([`LICENSE`](LICENSE)). The licence does not cover the
 dataset, which is distributed by its authors.
+
+### Notebook added in version 1.3.0 (review round, November 2026)
+
+| Notebook | Purpose | Runtime | Outputs |
+|---|---|---|---|
+| `16_fuzzy_parameters_and_optimizers` | sensitivity of the test F1 to the target orness and the gap penalty; HGS against random search, PSO and a genetic algorithm at the same number of distinct model evaluations (T1, T1b, T2, T3; seeds 42, 7, 123) | about 6.5 h of model fitting | `results_sensitivity_<task>.csv`, `sensitivity_report.txt`, `sensitivity_ranking.csv`, `fig_sensitivity.png` |
+
+Notebook 16 re-runs the twelve HGS searches of the main tasks. Nine reproduce the stored selection; three follow a
+different search path (see section 0 of `results/sensitivity_report.txt`).

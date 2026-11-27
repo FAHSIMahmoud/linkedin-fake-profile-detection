@@ -54,3 +54,14 @@ Revised paper (version 2) items: Table III and IV and Fig. 4 from `stats_interva
 Table V from `results_baselines.csv`; Table VI from `groupsplit_report.txt`; Fig. 6 from `stats_report.txt`,
 `confirm_summary.txt`, `groupsplit_report.txt` and `emscad_report.txt`; Table VII from `stats_report.txt`,
 `emscad_report.txt` and `objective_report.txt`; Table IX from `emscad_report.txt`.
+
+## Files added in version 1.3.0
+
+| File | Notebook | Content |
+|---|---|---|
+| `results_sensitivity_T1.csv`, `_T1b.csv`, `_T2.csv`, `_T3.csv` | 16 | one row per search: orness sweep, gap-penalty sweep, and random search, PSO and GA at the budget of HGS |
+| `sensitivity_report.txt` | 16 | consistency with the stored runs, paired tests, optimizer comparison |
+| `sensitivity_ranking.csv` | 16 | Spearman correlation between fitness and test F1 over all fitted models, per task, split and setting |
+
+In the revised paper the tables are renumbered (a notation table was added as Table II). The table "Fuzzy Parameters
+and Optimizers" is built from `sensitivity_report.txt`.
